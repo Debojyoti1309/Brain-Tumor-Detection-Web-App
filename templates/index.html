@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard - Brain Tumor Detection</title>
+    <link rel="icon" href="static\img\favicon.png">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='nav.css') }}">
+    <style>
+        .upload-banner {
+            background-image: url("../static/img/banner_bg.png");
+            }
+            .upload-banner-1 {
+            background-image: url("../static/img/about_bg.png");
+            }
+    </style>
+</head>
+<body>
+    <section class="banner_part upload-banner">
+    <!-- banner part start-->
+    <section class="banner_part">
+        {% include 'navbar.html' %}
+        <div class="container"> 
+            
+            <div class="row align-items-center">
+                <div class="col-lg-5 col-xl-5">
+                    <div class="banner_text">
+                        <div class="banner_text_iner">
+                            <h5>We are here for your care</h5>
+                            <h2>Brain Tumor
+                                Detection
+                            </h2>
+                            <p>Welcome to our Brain Tumor Detection System! We're here to assist you in detecting and understanding brain tumors through cutting-edge technology and medical expertise. Whether you're a healthcare professional, researcher, or someone concerned about their health, we're committed to providing accurate and timely information to aid in diagnosis and treatment decisions. Let's work together to promote early detection and improved outcomes for those affected by brain tumors.</p>
+                        
+                        <!-- Update the login and registration buttons to only display when user is not logged in -->
+                        {% if session.username %}
+                        <a href="/upload" class="btn_2">Detect Brain Tumor Now</a>
+                    {% else %}
+                        <a href="/register" class="btn_2">Register Now</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="/login" class="btn_2">Log In</a>
+                    {% endif %}
+                    
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="banner_img">
+                        <img src="static\img\banner_img.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+    <!-- banner part start-->
+
+    <!-- about us part start-->
+    <section class="banner_part upload-banner-1">
+    <section class="about_us padding_top">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-6 col-lg-6">
+                    <div class="about_us_img">
+                        <img src="static\img\top_service.png" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-5">
+                    <div class="about_us_text">
+                        <h2>Services</h2>
+                        <p>Welcome to our Brain Tumor Detection System, where cutting-edge technology meets compassionate care. Whether you're here seeking information, support, or medical guidance, we're dedicated to providing you with the resources and expertise you need. Together, let's navigate the journey of brain tumor detection, understanding, and treatment with knowledge, empathy, and hope. Your well-being is our priority, and we're here to support you every step of the way.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<footer>
+    <p>&copy; 2024 Brain Tumor Detection System | DEBOJYOTI DAS | MAKAUT </p>
+    <a href="mailto:debojyotidas158@gmail.com" style="color: #c2c2c2; text-decoration: none;">Email: debojyotidas158@gmail.com</a>
+</footer>
+</body>
+
+</html>

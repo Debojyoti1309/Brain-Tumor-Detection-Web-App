@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar - Brain Tumor Detection</title>
+</head>
+<body>
+    <header>
+        <h1 class="head_1">Brain Tumor Detection</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            {% if session.username %}
+                <a href="/logout">Logout</a>
+                &nbsp;&nbsp;<p>Welcome, {{ session.username }}!</p>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+            {% endif %}
+        </nav>
+    </header>
+</body>
+</html>

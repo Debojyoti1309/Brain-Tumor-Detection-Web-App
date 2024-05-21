@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="icon" href="static\img\favicon.png">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='nav.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .upload-banner {
+            background-image: url("../static/img/banner_bg.png");
+            }
+        
+        .container{
+            background-color: #f9f9f9;
+        }
+
+        .small-image {
+            width: 100px; 
+            height: auto; 
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="head_1">Registration</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+    <section class="banner_part upload-banner">
+    <div class="container">
+        <h2>Register</h2>
+        <img src="static\img\banner_img.png" alt="" class="small-image">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <form action="/register" method="post">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br>
+            <input type="submit" value="Register" class="btn_2">
+        </form>
+        <p>Already have an account? <a href="/login">Login</a></p>
+    </div>
+    <div class="about_us_img">
+        <img src="static\img\top_service.png" alt="">
+    </div>
+</section>
+<footer>
+    <p>&copy; 2024 Brain Tumor Detection System | DEBOJYOTI DAS | MAKAUT </p>
+    <a href="mailto:debojyotidas158@gmail.com" style="color: #c2c2c2; text-decoration: none;">Email: debojyotidas158@gmail.com</a>
+</footer>
+</body>
+</html>
