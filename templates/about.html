@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Brain Tumor Detection</title>
+    <link rel="icon" href="static\img\favicon.png">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='nav.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+    <style>
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .image-gallery img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .upload-banner {
+            background-image: url("../static/img/banner_bg.png");
+            }
+        .small-image {
+            width: 100px; 
+            height: auto; 
+            
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <section class="banner_part upload-banner">
+    <div class="container">
+                <img src="static\img\ability_img.png" alt="" class="small-image">
+        <h2>About Brain Tumor</h2>
+        <p style="padding: 50px;">A brain tumor is a mass or growth of abnormal cells in your brain. Many different types of brain tumors exist. Some brain tumors are noncancerous (benign), and some brain tumors are cancerous (malignant). Brain tumors can begin in your brain (primary brain tumors), or cancer can begin in other parts of your body and spread to your brain (secondary, or metastatic, brain tumors).</p>
+        
+        <div class="image-gallery">
+            <img src="static\uploads\image(16).jpg" alt="Brain Tumor Image 1">&nbsp;
+            <img src="static\uploads\pred35.jpg" alt="Brain Tumor Image 2">&nbsp;
+            <img src="static\uploads\pred45.jpg" alt="Brain Tumor Image 3">&nbsp;
+            <img src="static\uploads\pred40.jpg" alt="Brain Tumor Image 4">
+        </div>
+    </div>
+    <div class="about_us_img">
+        <img src="static\img\top_service.png" alt="">
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Brain Tumor Detection System | DEBOJYOTI DAS | MAKAUT </p>
+    <a href="mailto:debojyotidas158@gmail.com" style="color: #c2c2c2; text-decoration: none;">Email: debojyotidas158@gmail.com</a>
+</footer>
+    <script>
+        window.addEventListener("scroll", function() {
+            var footer = document.getElementById("footer");
+            var scrollPosition = window.scrollY;
+            var windowSize = window.innerHeight;
+            var fullHeight = document.body.scrollHeight;
+
+            // If scrolled to the bottom, display the footer
+            if (scrollPosition + windowSize >= fullHeight) {
+                footer.style.display = "block";
+            } else {
+                footer.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Brain Tumor Detection</title>
+    <link rel="icon" href="static\img\favicon.png">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='nav.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .upload-banner {
+            background-image: url("../static/img/banner_bg.png");
+            }
+             
+        .container{
+            background-color: #f9f9f9;
+        }
+
+        .small-image {
+            width: 100px; 
+            height: auto; 
+            
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <!-- upload.html -->
+<section class="banner_part upload-banner">
+
+    <div class="container">
+        <h2>Welcome, {{ session.username }}!</h2>
+        <h3>Upload MRI Images</h3>
+        <img src="static\img\ability_img.png" alt="" class="small-image">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="static\img\banner_img.png" alt="" class="small-image">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="static\img\top_service.png" alt="" class="small-image">
+        <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload_files') }}">
+            <label for="files" class="custom-file-upload">Choose File</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="file" name="files" id="files" multiple required>
+            <input type="submit" value="Detect Tumor" class="btn_2">
+        </form>
+        <div class="image-preview" id="image-preview"></div>
+    </div>
+    <div class="about_us_img">
+        <img src="static\img\top_service.png" alt="">
+    </div>
+</section>
+    <script>
+        document.getElementById('files').addEventListener('change', function(event) {
+            var preview = document.getElementById('image-preview');
+            preview.innerHTML = '';
+            Array.from(event.target.files).forEach(function(file) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.classList.add('image-item');
+                    preview.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+    </script>
+<footer>
+    <p>&copy; 2024 Brain Tumor Detection System | DEBOJYOTI DAS | MAKAUT </p>
+    <a href="mailto:debojyotidas158@gmail.com" style="color: #c2c2c2; text-decoration: none;">Email: debojyotidas158@gmail.com</a>
+</footer>
+</body>
+</html>

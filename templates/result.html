@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection Results</title>
+    <link rel="icon" href="static\img\favicon.png">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='nav.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .upload-banner {
+            background-image: url("../static/img/banner_bg.png");
+        }
+        
+        .container {
+            background-color: rgb(236, 236, 236);
+            max-height: calc(100vh - 150px); 
+            overflow-y: auto; 
+        }
+        
+        .small-image {
+            width: 100px; 
+            height: auto; 
+            
+        }
+
+        .images-1{
+            width: 100%;
+            text-align: center; 
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Include the nav bar-->
+    {% include 'navbar.html' %}
+
+<section class="banner_part upload-banner">
+
+    <div class="images-1">
+        <h2>Brain Tumor Detection Results</h2>
+        <img src="static\img\ability_img.png" alt="" class="small-image">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="static\img\banner_img.png" alt="" class="small-image">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="static\img\top_service.png" alt="" class="small-image">
+    </div>
+
+    <div class="container">
+        <div class="result">
+            {% for result in results %}
+            <div class="result-item">
+                <h3>Filename: {{ result.filename }}</h3>
+                {% if result.tumor_detected %}
+                <p class="tumor-detected-yes">Tumor Detected: Yes</p>
+                {% else %}
+                <p class="tumor-detected-no">Tumor Detected: No</p>
+                {% endif %}
+                <div class="image-preview">
+                    <div class="image-item">
+                        <img src="{{ result.image_url }}" alt="Brain Tumor Image">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="about_us_img">
+        <img src="static\img\top_service.png" alt="">
+    </div>
+</section>
+<footer>
+    <p>&copy; 2024 Brain Tumor Detection System | DEBOJYOTI DAS | MAKAUT </p>
+    <a href="mailto:debojyotidas158@gmail.com" style="color: #c2c2c2; text-decoration: none;">Email: debojyotidas158@gmail.com</a>
+</footer>
+</body>
+</html>
