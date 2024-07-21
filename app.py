@@ -18,7 +18,7 @@ app.secret_key = 'your_secret_key'
 #users_collection = db['users']
 
 # Connect to MongoDB Atlas
-mongo_uri = os.getenv('MONGO_URI')
+mongo_uri = os.getenv('mongodb+srv://odas1450:152535556@cluster0.nn5zaky.mongodb.net/')
 client = MongoClient(mongo_uri)
 db = client['brain_tumor']
 contacts_collection = db['contacts']
