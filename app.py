@@ -5,13 +5,21 @@ import os
 import cv2
 import numpy as np
 from keras.models import load_model
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
 app.secret_key = 'your_secret_key'
 
 # Connect to MongoDB
-client = MongoClient('mongodb://localhost:27017')
+#client = MongoClient('mongodb://localhost:27017')
+#db = client['brain_tumor']
+#contacts_collection = db['contacts']
+#users_collection = db['users']
+
+# Connect to MongoDB Atlas
+mongo_uri = os.getenv('MONGO_URI')
+client = MongoClient(mongo_uri)
 db = client['brain_tumor']
 contacts_collection = db['contacts']
 users_collection = db['users']
